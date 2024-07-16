@@ -1,0 +1,3 @@
+[submodule "granite-3b-code-instruct"]
+	path = ibm-granite/granite-3b-code-instruct
+	url = https://huggingface.co/ibm-granite/granite-3b-code-instruct
