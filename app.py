@@ -1,14 +1,17 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-device = "cuda" # or "cpu"
+device = "cpu" # or "cpu"
 model_path = "ibm-granite/granite-3b-code-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 # drop device_map if running on CPU
 model = AutoModelForCausalLM.from_pretrained(model_path, device_map=device)
 model.eval()
 # change input text as desired
+#chat = [
+#    { "role": "user", "content": "Write a code to find the maximum value in a list of numbers." },
+#]
 chat = [
-    { "role": "user", "content": "Write a code to find the maximum value in a list of numbers." },
+    { "role": "user", "content": "Question: write some python code that sends an email." }
 ]
 chat = tokenizer.apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
 # tokenize the text
